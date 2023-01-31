@@ -9,6 +9,17 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+type Tests struct {
+	name string
+	request string
+	expected string
+}
+
+type Benchmarks struct {
+	name string
+	request string
+}
+
 func TestHelloWorldRafi(t *testing.T){
 	result := HelloWorld("Rafi")
 
@@ -70,12 +81,9 @@ func TestSubTest(t *testing.T) {
 	})
 }
 
+
 func TestTableTest(t *testing.T) {
-	tests := []struct {
-		name string
-		request string
-		expected string
-	}{
+	tests := []Tests{
 		{
 			name: "Rafi",
 			request: "Rafi",
@@ -122,10 +130,7 @@ func BenchmarkSubHello(b *testing.B) {
 }
 
 func BenchmarkTableHello(b *testing.B) {
-	benchmarks := []struct {
-		name string
-		request string
-	} {
+	benchmarks := []Benchmarks {
 		{
 			name: "Rafi",
 			request: "Rafi",
